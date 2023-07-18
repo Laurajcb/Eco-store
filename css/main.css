@@ -5,6 +5,7 @@ body {
   background-color: #ffefe7;
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 16px;
+  width: 100%;
 }
 
 nav {
@@ -54,7 +55,9 @@ article p {
   font-size: 1rem;
 }
 article img {
-  width: 25vw;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
   border-radius: 1rem;
 }
 article button {
@@ -62,7 +65,7 @@ article button {
   border-style: none;
 }
 article button {
-  width: 12vw;
+  width: 40%;
   padding: 0.6rem;
   background: none;
   border-style: none;
@@ -72,6 +75,36 @@ article button {
   font-size: 0.8rem;
 }
 
+@media (max-width: 768px) {
+  article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+  }
+  article h1 {
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+  article p {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+  article .img-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  article .img-section img {
+    max-width: 64%;
+  }
+  article button {
+    width: 40%;
+    margin-bottom: 3rem;
+  }
+}
 section {
   width: auto;
   height: auto;
@@ -99,8 +132,9 @@ section .health-care .card-section, section .forniture .card-section {
   padding: 2rem;
 }
 section .health-care .product-card, section .forniture .product-card {
-  width: 15vw;
-  height: 40vh;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
   background-color: #ffdac6;
   color: #7c6a0a;
   padding: 1.5rem;
@@ -126,8 +160,8 @@ section .health-care .product-card .product-img, section .forniture .product-car
   align-items: center;
 }
 section .health-care .product-card .product-img img, section .forniture .product-card .product-img img {
-  width: 16vw;
-  height: 25vh;
+  width: 100%;
+  height: auto;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 0.3rem;
@@ -152,6 +186,24 @@ section .forniture .product-card {
 section .forniture .product-card svg path {
   stroke: white;
 }
+@media (max-width: 768px) {
+  section .health-care, section .forniture {
+    padding: 1rem;
+  }
+  section .health-care .card-section, section .forniture .card-section {
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 2rem;
+  }
+  section .product-card {
+    max-width: 100%;
+  }
+  section .product-card h3 {
+    font-size: 1rem;
+  }
+  section .product-card p {
+    font-size: 0.6rem;
+  }
+}
 
 .about-us {
   padding: 3rem;
@@ -170,28 +222,50 @@ section .forniture .product-card svg path {
 }
 .about-us .earth, .about-us .innovation {
   display: flex;
-  gap: 2.5rem;
+  flex-direction: column;
+  gap: 1rem;
   color: #e86424;
-  width: 30vw;
+  width: 100%;
+  max-width: 300px;
   font-size: 1.1rem;
   justify-content: center;
   align-items: center;
 }
 .about-us .earth img, .about-us .innovation img {
+  max-width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
 }
 .about-us .earth p, .about-us .innovation p {
   text-align: center;
 }
+@media (max-width: 768px) {
+  .about-us {
+    padding: 1rem;
+  }
+  .about-us .about-us-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  .about-us .earth,
+  .about-us .innovation {
+    width: 100%;
+    max-width: none;
+    font-size: 1rem;
+    text-align: center;
+  }
+}
+
 .gallery {
-  margin: 3.7rem;
+  margin: 1.5rem;
 }
 .gallery .gallery-images {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
 }
 .gallery .gallery-images img {
   width: 28vw;
@@ -206,26 +280,62 @@ section .forniture .product-card svg path {
   transform: scale(1.1);
   transition-duration: 0.3s;
 }
+@media (max-width: 768px) {
+  .gallery {
+    margin: 1rem;
+  }
+  .gallery .gallery-images {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    margin-top: 4rem;
+  }
+  .gallery .gallery-images img {
+    width: 52vw;
+    height: 31vh;
+  }
+}
 
 .location {
-  margin: 3.7rem;
+  margin: 1.5rem;
+}
+.location h2 {
+  margin: 6rem 0;
+}
+.location img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 .location h3 {
   color: #fa9500;
   font-weight: 400;
   margin-bottom: 0;
 }
-.location img {
-  width: 65rem;
-  height: 30rem;
-}
 .location p {
   color: #fa9500;
 }
 
+@media (max-width: 768px) {
+  .location {
+    margin: 4rem 0;
+  }
+  .location h2 {
+    margin-bottom: 4rem;
+  }
+  .location h3 {
+    font-size: medium;
+  }
+  .location p {
+    font-size: small;
+  }
+}
 footer {
   background-color: #fa9500;
-  padding: 3.7rem;
+  padding: 1.5rem;
   color: white;
 }
 footer ul {
@@ -244,4 +354,13 @@ footer .social-media {
 footer .social-media img {
   height: 1.6rem;
   padding: 0.5rem;
+}
+@media (max-width: 768px) {
+  footer {
+    padding: 1rem;
+    width: 100%;
+  }
+  footer .social-media {
+    justify-content: center;
+  }
 }/*# sourceMappingURL=main.css.map */
